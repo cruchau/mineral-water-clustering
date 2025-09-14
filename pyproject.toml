@@ -1,0 +1,24 @@
+[project]
+name = "mineral-water-cluster-analysis"
+version = "0.1.0"
+description = "Analysis and clustering of mineral water dataset"
+authors = [
+    {name = "cruchau",email = "cruchau@amazon.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy (>=2.3.3,<3.0.0)",
+    "pandas (>=2.3.2,<3.0.0)",
+    "matplotlib (>=3.10.6,<4.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)",
+    "scikit-learn (>=1.7.2,<2.0.0)",
+    "xlrd (>=2.0.2,<3.0.0)",
+    "openpyxl (>=3.1.5,<4.0.0)",
+    "kneed (>=0.8.5,<0.9.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

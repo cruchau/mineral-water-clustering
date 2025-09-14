@@ -3,7 +3,7 @@
 """
 Created on Fri Mar  8 10:45:30 2024
 
-@author: arnaudcruchaudet
+@author: cruchau
 """
 
 import numpy as np
@@ -16,7 +16,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
 
-waters = pd.read_excel("EauxMinÃ©rales.xls", header = 0)
+waters = pd.read_excel("data/mineral-waters.xls", header = 0)
 
 
 X = waters.iloc[:,1:11]
@@ -74,7 +74,7 @@ shc.dendrogram(Z=clusters)
 plt.show()
 
 
-cluster = AgglomerativeClustering(n_clusters=3, affinity='euclidean', linkage='ward')
+cluster = AgglomerativeClustering(n_clusters=3, metric='euclidean', linkage='ward')
 cluster.fit(X)
 cluster.labels_
 cluster_num = cluster.labels_
@@ -84,7 +84,7 @@ sns.scatterplot(x="Calcium",
                 hue=cluster_num, palette="rainbow").set_title('Mineral Waters')
 waters.loc[:,"Cluster"]=cluster_num
 
-cluster = AgglomerativeClustering(n_clusters=4, affinity='euclidean', linkage='complete')
+cluster = AgglomerativeClustering(n_clusters=4, metric='euclidean', linkage='complete')
 cluster.fit(X)
 cluster.labels_
 cluster_num = cluster.labels_
@@ -138,7 +138,7 @@ plt.show() #Inversion problem
 
 
 
-cluster = AgglomerativeClustering(n_clusters=5, affinity='manhattan', linkage='single')
+cluster = AgglomerativeClustering(n_clusters=5, metric='manhattan', linkage='single')
 cluster.fit(XT)
 cluster.labels_
 cluster_num = cluster.labels_
@@ -176,7 +176,7 @@ plt.show()
 
 
 #with manhattan distance & PCA 
-cluster = AgglomerativeClustering(n_clusters=4, affinity="manhattan", linkage='average')
+cluster = AgglomerativeClustering(n_clusters=4, metric="manhattan", linkage='average')
 cluster.fit(X_pca)
 cluster.labels_
 cluster_num = cluster.labels_
@@ -188,7 +188,7 @@ waters.loc[:,"Cluster"]=cluster_num
 
 #with Mahalanobis distance & PCA 
 
-cluster = AgglomerativeClustering(n_clusters=3, affinity="mahalanobis", linkage='average')
+cluster = AgglomerativeClustering(n_clusters=3, metric="mahalanobis", linkage='average')
 cluster.fit(X_pca)
 cluster.labels_
 cluster_num = cluster.labels_
@@ -200,7 +200,7 @@ waters.loc[:,"Cluster"]=cluster_num
 
 
 
-cluster = AgglomerativeClustering(n_clusters=3, affinity="euclidean", linkage='complete')
+cluster = AgglomerativeClustering(n_clusters=3, metric="euclidean", linkage='complete')
 cluster.fit(X_pca)
 cluster.labels_
 cluster_num = cluster.labels_

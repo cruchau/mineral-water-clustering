@@ -3,7 +3,7 @@
 """
 Created on Fri Mar  8 10:39:32 2024
 
-@author: arnaudcruchaudet
+@author: cruchau
 """
 
 import pandas as pd
@@ -18,7 +18,7 @@ from sklearn.decomposition import PCA
 
 
 
-waters = pd.read_excel("EauxMinÃ©rales.xls", header = 0)
+waters = pd.read_excel("data/mineral-waters.xls", header = 0)
 
 
 X = waters.iloc[:,1:10]
